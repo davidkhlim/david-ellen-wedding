@@ -1,6 +1,6 @@
 import './App.css';
-import { React } from 'react';
-import { FaClone, FaExternalLinkAlt, FaMusic } from 'react-icons/fa';
+import { React, useState, useRef } from 'react';
+import { FaClone, FaExternalLinkAlt, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -21,37 +21,45 @@ function App() {
     });
   };
 
+  const [audioStatus, changeAudioStatus] = useState(true);
+  const myRef = useRef();
+  const musicHandling = () => {
+    if(audioStatus == true) myRef.current.pause();
+    else myRef.current.play();
+    changeAudioStatus(!audioStatus);
+  }
+
   return (
     <div className="flex flex-col overflow-hidden">
-      <audio loop autoPlay>
-        <source src="song.mp3" type="audio/mpeg" />
-      </audio>
+      <audio autoPlay ref={myRef} src='song.mp3'/>
+          
+      <button onClick={musicHandling} className='p-3 m-2 w-fit bg-gray-400 rounded-full fixed bottom-0 z-100'>
+        { audioStatus ? 
+          <FaVolumeUp color='white' /> :
+          <FaVolumeMute color='white' />
+        }
+      </button> 
 
-    {/* <div className="border-b-8 opening drop-shadow-lg border-white fade-in">
-      <img className="w-full max-h-screen object-cover object-top animate-fade" src="/images/opening.jpg" />
-    </div> */}
-
+      {/* OPENING IMAGE */}
       <div className="min-h-screen fade-in relative w-full">
         <img src="/images/opening.jpg" className='absolute h-full object-cover sm:w-full -z-10'></img>
-
         <div className="m-4 flex gap-8 justify-center text-center bg-linear items-center z-10">
-        {/* <div className="grid gap-8 grid-flow-col auto-cols-max justify-center text-center bg-linear items-center"> */}
           <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
-
           <div className="text-lg text-black top-font">
             <div>The Wedding of</div>
             <div className="text-3xl tracking-wider font-medium">
               David & Ellen
             </div>
           </div>
-
           <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
-        </div>    
+        </div>
       </div>
 
-      <div className="grid gap-6 mx-auto w-full justify-items-center text-center pb-6 schedule fade-in">
+      {/* CONTENT */}
+      <div className="grid gap-6 mx-auto w-full justify-items-center text-center pb-6 schedule fade-in -z-10">
 
-        <div className="grid gap-8 w-full pb-12 border-b-8 border-white drop-shadow-lg shadow-inner bg">
+        {/* GROOM, BRIDE, FAMILY NAMES */}
+        <div className="grid gap-8 w-full pb-12 border-b-8 border-white drop-shadow-lg shadow-inner bg-names">
           <div className="pt-5 mb-6 grid gap-3 divide-y-2 divide-[#999090] text-[#999090] top-font text-lg font-medium">
             <div >Dear,</div>
             <div className="w-fit pt-2 text-2xl mx-auto">{name}</div>
@@ -75,6 +83,7 @@ function App() {
           </div>
         </div>
 
+        {/* SCHEDULE */}
         <div className='box-border px-8 max-w-screen w-screen'>
           <div className="mt-12 content-font text-base sm:text-lg font-medium tracking-wider leading-9">
             <div className="font-extrabold">holy matrimony</div>
@@ -110,7 +119,7 @@ function App() {
             </div>
           </div>
 
-
+          {/* WEDDING GIFTS */}
           <div className="w-full mx-auto">
             <div className="mt-6 mb-2 content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">wedding gifts</div>
@@ -131,6 +140,7 @@ function App() {
               />
             </div>
 
+            {/* OTHER IMAGES */}
             <div className="mx-auto w-fit mt-12 grid gap-8 grid-flow-col auto-cols-max rounded-lg drop-shadow-lg">
               <img src='/images/main.png' className="w-24 rounded-full border-4 border-white" />
               <img src='/images/main.png' className="w-24 rounded-full border-4 border-white" />
