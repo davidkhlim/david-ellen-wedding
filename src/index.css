@@ -71,8 +71,7 @@ code {
 }
 
 .main {
-  /* width: 100vw; */
-  height: 100vh;
+  /* height: 100vh; */
   background-image: url(../public/images/opening.jpg);
   background-position: top;
   background-repeat: no-repeat;
