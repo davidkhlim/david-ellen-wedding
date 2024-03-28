@@ -9,15 +9,15 @@ function App() {
   const queryParam = new URLSearchParams(window.location.search);
   const name = queryParam.get("to");
 
-  const copyToClipboard = async () => {
+  const copyToClipboard = () => {
     navigator.clipboard.writeText("12345678");
     toast.success("Copied to clipboard", {
+      width: 100,
       autoClose: 2000,
       position: "bottom-center",
       autoClose: 3000,
       hideProgressBar: true,
       pauseOnFocusLoss: false,
-
     });
   };
 
@@ -33,7 +33,7 @@ function App() {
     <div className="flex flex-col overflow-hidden">
       <audio autoPlay ref={myRef} src='song.mp3'/>
           
-      <button onClick={musicHandling} className='p-3 m-2 w-fit bg-gray-400 rounded-full fixed bottom-0 z-100'>
+      <button onClick={musicHandling} className='p-3 m-2 w-fit bg-gray-400 rounded-full fixed bottom-0 z-10'>
         { audioStatus ? 
           <FaVolumeUp color='white' /> :
           <FaVolumeMute color='white' />
@@ -56,7 +56,7 @@ function App() {
       </div>
 
       {/* CONTENT */}
-      <div className="grid gap-6 mx-auto w-full justify-items-center text-center pb-6 schedule fade-in -z-10">
+      <div className="grid gap-6 mx-auto w-full justify-items-center text-center pb-6 schedule fade-in -z-1">
 
         {/* GROOM, BRIDE, FAMILY NAMES */}
         <div className="grid gap-8 w-full pb-12 border-b-8 border-t-8 border-white drop-shadow-lg shadow-inner bg-names">
@@ -89,26 +89,29 @@ function App() {
             <div className="font-extrabold">holy matrimony</div>
             <div>Saturday, 18th May 2024 | xx.xx WIB</div>
             <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7" >Saint Peter Cathedral</a>
+              {/* <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7" >
+                <FaExternalLinkAlt className="inline-block ml-2 mb-1 h-3 w-4" />
+              </a> */}
             <div className="mx-auto">
               Jl. Merdeka, no. 14, Bandung
-              <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7" >
-                <FaExternalLinkAlt className="inline-block ml-2 mb-1 h-3 w-4" />
-              </a>
             </div>
+            <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7">get direction</a>
           </div>
 
           <div className="mt-12 content-font text-base sm:text-lg font-medium tracking-wider leading-9">
             <div className="font-extrabold">reception</div>
             <div>Saturday, 25th May 2024 | xx.xx WIB</div>
             <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8" >Star Restaurant </a>
+              {/* <a className="" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8" >
+                <FaExternalLinkAlt className="ml-2 mb-1 h-3 w-4 inline-block" />
+              </a> */}
             <br />
-            <a className="text-lg" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8" >function hall lt. 3</a>
+            <a className="text-lg" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8">function hall lt. 3</a>
             <div className="mx-auto">
               Jl. Gajah Mada No. 189, Pontianak
-              <a className="" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8" >
-                <FaExternalLinkAlt className="ml-2 mb-1 h-3 w-4 inline-block" />
-              </a>
             </div>
+
+            <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm z-20' href={"https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8"} target='_blank' rel="noopener noreferrer">get direction</a>
           </div>
 
           <div className="mt-12 pb-6 content-font text-lg font-medium tracking-wider leading-9">
@@ -124,10 +127,8 @@ function App() {
             <div className="mt-6 mb-2 content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">wedding gifts</div>
               <div className="max-w-[25rem] mx-auto">Whilst it’s enough of your present and prayer, it would be our pleasure to receive your special gift of love</div>
-              {/* <div>it would be our pleasure to receive</div>
-              <div>your special give of love</div> */}
               <div className="grid p-2 grid-flow-col auto-cols-max text-left mt-2 bg-white w-fit mx-auto rounded-lg drop-shadow-md">
-                <div className="w-52">
+                <div className="w-52" onClick={copyToClipboard}>
                   <div>BCA XXXXXXXX</div>
                   <div>a.n. David Ellen</div>
                 </div>
