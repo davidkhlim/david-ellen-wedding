@@ -49,13 +49,6 @@ code {
   background-position: center;
 }
 
-.bottom {
-  background-image: url(../public/images/bottom.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .fade-in{
   animation: fadeIn 2.5s;
 }
@@ -67,12 +60,4 @@ code {
 
 .toast{
   width: 10px;
-}
-
-.main {
-  /* height: 100vh; */
-  background-image: url(../public/images/opening.jpg);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
 }

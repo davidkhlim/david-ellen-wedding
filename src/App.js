@@ -42,7 +42,7 @@ function App() {
 
       {/* OPENING IMAGE */}
       <div className="min-h-screen fade-in relative w-full">
-        <img src="/images/opening.jpg" className='absolute h-full object-cover sm:w-full -z-10'></img>
+        <img src="/images/opening.jpg" className='absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]'></img>
         <div className="m-4 flex gap-8 justify-center text-center bg-linear items-center z-10">
           <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
           <div className="text-lg text-black top-font">
@@ -59,7 +59,7 @@ function App() {
       <div className="grid gap-6 mx-auto w-full justify-items-center text-center pb-6 schedule fade-in -z-10">
 
         {/* GROOM, BRIDE, FAMILY NAMES */}
-        <div className="grid gap-8 w-full pb-12 border-b-8 border-white drop-shadow-lg shadow-inner bg-names">
+        <div className="grid gap-8 w-full pb-12 border-b-8 border-t-8 border-white drop-shadow-lg shadow-inner bg-names">
           <div className="pt-5 mb-6 grid gap-3 divide-y-2 divide-[#999090] text-[#999090] top-font text-lg font-medium">
             <div >Dear,</div>
             <div className="w-fit pt-2 text-2xl mx-auto">{name}</div>
@@ -72,13 +72,13 @@ function App() {
           </div>
 
           <div className="leading-10">
-            <div className="name-font text-[2.6rem]">David Khowanto Lim</div>
+            <div className="name-font text-[2.2rem] sm:text-[2.6rem]">David Khowanto Lim</div>
             <div className="text-lg capitalize parent-font leading-5">first son of<br />lim yam hiong & khow phek huan</div>
           </div>
 
-          <div className="name-font text-[2.6rem] m-3">&</div>
+          <div className="name-font text-[2rem] sm:text-[2.6rem] m-3">&</div>
           <div className="leading-10">
-            <div className="name-font text-[2.6rem]">Eleonora Julianti Mardi Utami</div>
+            <div className="name-font text-[2.2rem] sm:text-[2.6rem]">Eleonora Julianti Mardi Utami</div>
             <div className="text-lg capitalize parent-font leading-5">first Daughter of<br />apolonius sumardijono & elite julili</div>
           </div>
         </div>
@@ -141,12 +141,25 @@ function App() {
             </div>
 
             {/* OTHER IMAGES */}
-            <div className="mx-auto w-fit mt-12 grid gap-8 grid-flow-col auto-cols-max rounded-lg drop-shadow-lg">
-              <img src='/images/main.png' className="w-24 rounded-full border-4 border-white" />
-              <img src='/images/main.png' className="w-24 rounded-full border-4 border-white" />
-              <img src='/images/main.png' className="w-24 rounded-full border-4 border-white" />
+            <div className="mx-auto w-fit mt-12 flex flex-wrap gap-10 items-center justify-center rounded-lg drop-shadow-lg">
+              <img src='/images/bottom1.jpg' className="w-40 rounded-full border-4 border-white" />
+              <img src='/images/bottom2.jpg' className="w-40 rounded-full border-4 border-white" />
+              <img src='/images/bottom3.jpg' className="w-40 rounded-full border-4 border-white" />
             </div>
           </div>
+
+          <div className="m-4 mt-16 flex gap-8 justify-center text-center bg-linear items-center">
+            <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
+            <div className="text-lg text-black top-font">
+              <div>Thank you for your presence and warm wishes</div>
+              <div className="text-3xl tracking-wider font-medium">
+                David & Ellen
+              </div>
+              <div>with the family</div>
+            </div>
+            <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
+          </div>
+
         </div>
       </div>
     </div>
