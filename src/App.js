@@ -1,3 +1,12 @@
+/**
+ * TODO: 
+  1. ID/EN
+  2. if "to" parameter not exists, Dear will show family and friends [DONE]
+  3. Bandung Wedding Dinner RSVP / no
+  4. coba RSVP pakai google form
+  5. ganti kata2
+ */
+
 import './App.css';
 import { React, useState, useRef } from 'react';
 import { FaClone, FaExternalLinkAlt, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
@@ -5,9 +14,20 @@ import { FaClone, FaExternalLinkAlt, FaVolumeMute, FaVolumeUp } from 'react-icon
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+import { createClient } from "@supabase/supabase-js";
+
+async function SubmitForm(name, pax) {
+  const supabase = createClient("https://udwruewtbwimrrlfekig.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkd3J1ZXd0YndpbXJybGZla2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY0NjY4ODQsImV4cCI6MjAyMjA0Mjg4NH0.bd5izwVQucwICbx5cj_we0MnKQYvCR4fB8Ypts-_2JI");
+
+  const { data } = await supabase.from("wedding-dinner-rsvp").insert({ name: name, pax: 1 });
+  console.log(data);
+}
+
 function App() {
   const queryParam = new URLSearchParams(window.location.search);
   const name = queryParam.get("to");
+  const [audioStatus, changeAudioStatus] = useState(true);
+  const myRef = useRef();
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText("12345678");
@@ -21,8 +41,6 @@ function App() {
     });
   };
 
-  const [audioStatus, changeAudioStatus] = useState(true);
-  const myRef = useRef();
   const musicHandling = () => {
     if(audioStatus == true) myRef.current.pause();
     else myRef.current.play();
@@ -60,9 +78,10 @@ function App() {
 
         {/* GROOM, BRIDE, FAMILY NAMES */}
         <div className="grid gap-8 w-full pb-12 border-b-8 border-t-8 border-white drop-shadow-lg shadow-inner bg-names">
-          <div className="pt-5 mb-6 grid gap-3 divide-y-2 divide-[#999090] text-[#999090] top-font text-lg font-medium">
+          {/* <div className="pt-5 mb-6 grid gap-3 divide-y-2 divide-[#999090] text-[#999090] top-font text-lg font-medium"> */}
+          <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#999090] top-font text-lg font-medium mx-auto rounded-xl">
             <div >Dear,</div>
-            <div className="w-fit pt-2 text-2xl mx-auto">{name}</div>
+            <div className="w-fit pt-2 text-2xl mx-auto">{name ? name : "Family and Friends"}</div>
           </div>
 
           <div className="content-font text-lg font-medium tracking-wider mb-8">
@@ -119,6 +138,7 @@ function App() {
             <div>please let us know if you'll join us</div>
             <div className="pb-2 drop-shadow-lg">
               <iframe className="w-[350px] mx-auto h-[350px] rounded-lg" src="https://tally.so/r/woGZWe" title="" />
+              {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZ5fXBMmFDF6qHHX7szGJFwRC5XqZAwc9Yq3X8U1DGYQqV9A/viewform?embedded=true" width="640" height="1116" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
             </div>
           </div>
 
