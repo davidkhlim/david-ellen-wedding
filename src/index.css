@@ -15,6 +15,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -44,7 +49,6 @@ code {
 
 .schedule {
   background-image: url(../public/images/schedule.jpg);
-  background-size: contain;
   background-repeat: repeat-y;
   background-position: center;
 }
