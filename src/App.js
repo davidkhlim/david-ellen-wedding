@@ -92,26 +92,38 @@ function App() {
             <div>wedding celebration</div>
           </div>
 
-          <div className="leading-10">
+          <div className="flex flex-col leading-10 gap-4">
             <div className="name-font text-[2.2rem] sm:text-[2.6rem]">David Khowanto Lim</div>
             {/* <div className="text-lg capitalize parent-font leading-5">first son of<br />lim yam hiong & khow phek huan</div> */}
             <div className="text-lg capitalize parent-font leading-5">first son of</div>
-            <div className='flex w-full'>
-              <div>
-                <div className="text-lg capitalize parent-font leading-5">lim yam hiong</div>
-                <div className="text-lg capitalize parent-font leading-5">"kok liang"</div>
+            <div className='flex justify-center gap-4 w-full mx-auto max-w-3xl'>
+              <div className='w-1/2'>
+                <div className="text-lg capitalize parent-font leading-7">lim yam hiong</div>
+                <div className="text-md capitalize parent-font leading-7">"kok liang"</div>
               </div>
-              <div>
-                <div className="text-lg capitalize parent-font leading-5">ho phek huan</div>
-                <div className="text-lg capitalize parent-font leading-5">"khow phek luan"</div>
+              <div className='w-1/2'>
+                <div className="text-lg capitalize parent-font leading-7">ho phek huan</div>
+                <div className="text-md capitalize parent-font leading-7">"khow phek luan"</div>
               </div>
             </div>
           </div>
 
           <div className="name-font text-[2rem] sm:text-[2.6rem] m-3">&</div>
-          <div className="leading-10">
+
+          <div className="flex flex-col leading-10 gap-4">
             <div className="name-font text-[2.2rem] sm:text-[2.6rem]">Eleonora Julianti Mardi Utami</div>
-            <div className="text-lg capitalize parent-font leading-5">first Daughter of<br />apolonius sumardijono & elite julili</div>
+            {/* <div className="text-lg capitalize parent-font leading-5">first Daughter of<br />apolonius sumardijono & elite julili</div> */}
+            <div className="text-lg capitalize parent-font leading-5">first daughter of</div>
+            <div className='flex justify-center gap-4 w-full mx-auto max-w-3xl'>
+              <div className='w-1/2'>
+                <div className="text-lg capitalize parent-font leading-7">apolonius sumardijono</div>
+                <div className="text-md capitalize parent-font leading-7">"apolonius"</div>
+              </div>
+              <div className='w-1/2'>
+                <div className="text-lg capitalize parent-font leading-7">elite julili</div>
+                <div className="text-md capitalize parent-font leading-7">"elite"</div>
+              </div>
+            </div>
           </div>
         </div>
 
