@@ -21,9 +21,10 @@ function BandungRSVP() {
       <div>please let us know if you'll join us</div>
 
       <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-8 p-8 rounded-lg shadow">
-        <input placeholder="full name" type="text" className="border-2 border-gray-400 px-3 py-2 rounded-lg" value={name} onChange={(e) => setName(e.target.value)}></input>
-        <div className="flex justify-between items-center">
-          <input type="number" min='1' max='10' className="border-2 border-gray-400 rounded-lg p-2" placeholder="1" value={pax} onChange={(e) => setPax(e.target.value)}></input>
+        <input placeholder="full name" type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg" value={name} onChange={(e) => setName(e.target.value)}></input>
+
+        <div className="flex space-x-2 items-center">
+          <input type="number" min='1' max='10' className="border-2 border-gray-400 rounded-lg p-2 text-sm text-right" placeholder="1" value={pax} onChange={(e) => setPax(e.target.value)}></input>
           <label>number of guests</label>
         </div>
         <button className="bg-[#999090] p-2 rounded-full text-white" onClick={SubmitForm}>I'll be there</button>

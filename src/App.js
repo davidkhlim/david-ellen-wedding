@@ -94,7 +94,18 @@ function App() {
 
           <div className="leading-10">
             <div className="name-font text-[2.2rem] sm:text-[2.6rem]">David Khowanto Lim</div>
-            <div className="text-lg capitalize parent-font leading-5">first son of<br />lim yam hiong & khow phek huan</div>
+            {/* <div className="text-lg capitalize parent-font leading-5">first son of<br />lim yam hiong & khow phek huan</div> */}
+            <div className="text-lg capitalize parent-font leading-5">first son of</div>
+            <div className='flex w-full'>
+              <div>
+                <div className="text-lg capitalize parent-font leading-5">lim yam hiong</div>
+                <div className="text-lg capitalize parent-font leading-5">"kok liang"</div>
+              </div>
+              <div>
+                <div className="text-lg capitalize parent-font leading-5">ho phek huan</div>
+                <div className="text-lg capitalize parent-font leading-5">"khow phek luan"</div>
+              </div>
+            </div>
           </div>
 
           <div className="name-font text-[2rem] sm:text-[2.6rem] m-3">&</div>
@@ -107,9 +118,10 @@ function App() {
         {/* SCHEDULE */}
         <div className='flex flex-col gap-24 box-border px-8 schedule sm:bg-cover bg-contain max-w-screen w-screen'>
 
-          <div className="mt-12 content-font text-base sm:text-lg font-medium tracking-wider leading-9">
+          <div className="mt-20 content-font text-base sm:text-lg font-medium tracking-wider leading-9">
             <div className="font-extrabold">holy matrimony</div>
-            <div>Saturday, 18th May 2024 | xx.xx WIB</div>
+            <div>Saturday, 18th May 2024</div>
+            <div>14.30 WIB</div>
             <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7" >Saint Peter Cathedral</a>
             <div className="mx-auto">
               Jl. Merdeka, no. 14, Bandung
@@ -119,7 +131,8 @@ function App() {
 
           <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9">
             <div className="font-extrabold">reception</div>
-            <div>Saturday, 25th May 2024 | xx.xx WIB</div>
+            <div>Saturday, 25th May 2024</div>
+            <div>17.00 - 20.00 WIB</div>
             <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8" >Star Restaurant </a>
             <br />
             <a className="text-lg" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8">function hall lt. 3</a>
@@ -141,7 +154,7 @@ function App() {
             <div className="content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">wedding gifts</div>
               <div className="max-w-[25rem] mx-auto">
-                Whilst it’s enough of your present and prayer, it would be our pleasure to receive your special gift of love
+                Whilst it's enough of your present and prayer, it would be our pleasure to receive your special gift of love
               </div>
               <div className="grid p-2 grid-flow-col auto-cols-max text-left mt-2 bg-white w-fit mx-auto rounded-lg drop-shadow-md">
                 <div className="w-52" onClick={copyToClipboard} data-num="222222">
