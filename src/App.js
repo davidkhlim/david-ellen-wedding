@@ -155,7 +155,8 @@ function App() {
 
           {/* RSVP */}
           {isRsvp ? <>
-            <BandungRSVP></BandungRSVP></>
+            <BandungRSVP name={name} />
+          </>
             : null
           }
 
@@ -167,7 +168,7 @@ function App() {
                 {/* Whilst it's enough of your present and prayer, it would be our pleasure to receive your special gift of love */}
                 Your presence and prayers are truly priceless. Your heartfelt gift of love would add immeasurable joy to our day.
               </div>
-              <BankAcc name="david_bca" ></BankAcc>
+              <BankAcc name="david_bca"></BankAcc>
               <BankAcc name="ellen_bca"></BankAcc>
             </div>
           </div>
