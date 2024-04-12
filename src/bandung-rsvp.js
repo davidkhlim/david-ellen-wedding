@@ -16,14 +16,14 @@ function BandungRSVP() {
   };
 
   return (
-    <div className="mt-12 pb-6 content-font text-lg font-medium tracking-wider leading-9">
+    <div className="content-font text-lg font-medium tracking-wider leading-9">
       <div className="font-extrabold">reception rsvp</div>
       <div>please let us know if you'll join us</div>
 
-      <div className="bg-white mx-auto w-max flex flex-col gap-8 p-8 rounded-lg shadow">
+      <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-8 p-8 rounded-lg shadow">
         <input placeholder="full name" type="text" className="border-2 border-gray-400 px-3 py-2 rounded-lg" value={name} onChange={(e) => setName(e.target.value)}></input>
         <div className="flex justify-between items-center">
-          <input type="number" min='1' max='10' className="border-2 border-gray-400 rounded-lg px-3 py-2" placeholder="1" value={pax} onChange={(e) => setPax(e.target.value)}></input>
+          <input type="number" min='1' max='10' className="border-2 border-gray-400 rounded-lg p-2" placeholder="1" value={pax} onChange={(e) => setPax(e.target.value)}></input>
           <label>number of guests</label>
         </div>
         <button className="bg-[#999090] p-2 rounded-full text-white" onClick={SubmitForm}>I'll be there</button>

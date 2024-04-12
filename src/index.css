@@ -65,3 +65,19 @@ code {
 .toast{
   width: 10px;
 }
+
+#wave {
+  height: 150px; 
+  overflow: hidden;
+  z-index: 9;
+}
+
+#wavePath {
+  stroke: none; 
+  fill: #999090;
+}
+
+#waveSvg {
+  height: 100%;
+  width: 100%;
+}
