@@ -1,0 +1,45 @@
+[
+  {
+    "heading": {
+      "id": "pernikahan",
+      "en": "the wedding of",
+      "ch": "婚礼"
+    },
+    "recipient": {
+      "id": "kepada",
+      "en": "dear",
+      "ch": "光臨"
+    },
+    "bible": {
+      "id": "kolose 3:14",
+      "en": "colossians 3:14",
+      "ch": "歌罗西书 3:14"
+    },
+    "bible-verse": {
+      "id": "Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan.",
+      "en": "Above all, clothe yourselves with love, which binds us all together in perfect harmony.",
+      "ch": "在这一切之外，要存着爱心，爱心就是联络全德的。"
+    },
+    "welcome": {
+      "id": "oleh karena rahmat Tuhan Yang Maha Esa, kami menyambut Anda di perayaan pernikahan kami",
+      "en": "embraced by god's grace we welcome you to our wedding celebration",
+      "ch": "受到上帝恩典的拥抱，我们欢迎您参加我们的婚礼庆典"
+    },
+    "statusSon": {
+      "id": "putra sulung dari",
+      "en": "first son of",
+      "ch": "长子"
+    },
+    "statusDaughter": {
+      "id": "putri sulung dari",
+      "en": "first daughter of",
+      "ch": "长女"
+    },
+    "holyMatrimony": {
+      "id": "pemberkatan",
+      "en": "holy matrimony",
+      "ch": "婚姻圣事"
+    },
+    "holyDate": {}
+  }
+]

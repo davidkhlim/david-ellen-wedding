@@ -20,7 +20,7 @@ export default function BankAcc(props) {
   };
 
   return (<div className="grid p-2 grid-flow-col auto-cols-max text-left mt-2 bg-white w-fit mx-auto rounded-lg drop-shadow-md" onClick={copyToClipboard}>
-    <div className="w-52" >
+    <div className="w-fit p-2" >
       <div>{info.bank} {info.no}</div>
       <div>{info.name}</div>
     </div>

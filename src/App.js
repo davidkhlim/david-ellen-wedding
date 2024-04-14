@@ -5,10 +5,12 @@
   3. Bandung Wedding Dinner RSVP [DONE]
  */
 import BandungRSVP from './bandung-rsvp.js';
-import BankAcc from "./back-acc.js";
+import BankAcc from "./bank-acc.js";
+import data from './localization.json';
 import './App.css';
 import { React, useState, useRef } from 'react';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+
 
 function App() {
   const queryParam = new URLSearchParams(window.location.search);
@@ -26,7 +28,6 @@ function App() {
   };
 
   return (
-
     <div className="flex flex-col overflow-hidden h-max">
 
       <audio autoPlay ref={myRef} src='song.mp3' />
@@ -48,12 +49,12 @@ function App() {
 
 
       {/* OPENING IMAGE */}
-      <div className="min-h-screen fade-in relative w-full">
+      <div className="min-h-screen fade-in relative w-full capitalize">
         <img src="/images/opening.jpg" className='absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]'></img>
         <div className="m-4 flex gap-8 justify-center text-center bg-linear items-center z-10">
           <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
           <div className="text-lg text-black top-font">
-            <div>The Wedding of</div>
+            <div>{data.map(d => d.heading.ch)}</div>
             <div className="text-3xl tracking-wider font-medium">
               David & Ellen
             </div>
@@ -78,20 +79,22 @@ function App() {
       {/* CONTENT */}
       <div className="flex flex-col mx-auto w-full justify-items-center text-center fade-in -z-1">
         {/* GROOM, BRIDE, FAMILY NAMES */}
-        <div className="grid gap-8 w-full pb-12 border-8 border-white drop-shadow-lg shadow-inner bg-names">
+        <div className="grid gap-14 w-full pb-12 border-b-8 border-white drop-shadow-lg shadow-inner bg-names">
           <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#999090] top-font text-lg font-medium mx-auto rounded-xl">
             <div >Dear,</div>
             <div className="w-fit pt-2 text-2xl mx-auto">{name ? name : "Family and Friends"}</div>
           </div>
 
-          <div className="content-font text-lg font-medium tracking-wider mb-8">
-            <div className="font-extrabold">embraced by god's grace</div>
-            <div>we welcome you to our</div>
-            <div>wedding celebration</div>
+          <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-6">
+            <div className=''>
+              <p className="font-extrabold">{data.map(d => d.pasal.en)}</p>
+              <p className='p-5'>{data.map(d => d.ayat.en)}</p>
+            </div>
+            <div className='p-5 mx-12'>{data.map(d => d.welcome.en)}</div>
           </div>
 
           <div className="flex flex-col leading-10 gap-4">
-            <div className="name-font text-[2.2rem] sm:text-[2.6rem]">David Khowanto Lim (David)</div>
+            <div className="name-font text-[2.2rem] sm:text-[2.6rem]">David Khowanto Lim  (David)</div>
             {/* <div className="text-lg capitalize parent-font leading-5">first son of<br />lim yam hiong & khow phek huan</div> */}
             <div className="text-lg capitalize parent-font leading-5">first son of</div>
             <div className='flex justify-center gap-4 w-full mx-auto max-w-3xl'>
@@ -126,7 +129,7 @@ function App() {
         </div>
 
         {/* SCHEDULE */}
-        <div className='flex flex-col gap-24 box-border px-8 schedule sm:bg-cover bg-contain max-w-screen w-screen'>
+        <div className='flex flex-col gap-24 box-border px-8 schedule lg:bg-cover bg-contain max-w-screen w-screen'>
 
           <div className="mt-20 content-font text-base sm:text-lg font-medium tracking-wider leading-9">
             <div className="font-extrabold">holy matrimony</div>
