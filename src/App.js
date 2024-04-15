@@ -122,7 +122,7 @@ function App() {
 
             <div className="name-font text-[2rem] sm:text-[2.6rem] mb-11">&</div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col pb-10">
               <div className="name-font text-[2.2rem] sm:text-[2.6rem]">Eleonora Julianti Mardi Utami (Ellen)</div>
               <div className="text-lg capitalize parent-font leading-5">{data.map(d => d.statusDaughter)}</div>
               <div className='flex justify-center gap-4 w-full mx-auto max-w-3xl'>
