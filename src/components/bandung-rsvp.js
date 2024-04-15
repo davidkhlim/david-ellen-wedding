@@ -1,8 +1,10 @@
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js"
 import { useEffect, useState } from "react";
 
 
 function BandungRSVP(props) {
+  const [data, setData] = useState(props.lang);
   const [name, setName] = useState(props.name);
   const [pax, setPax] = useState(0);
   const [nameError, setNameError] = useState("");
@@ -62,7 +64,7 @@ function BandungRSVP(props) {
         {isSuccess ? <button className="bg-[#999090] p-2 rounded-full text-white text-sm" onClick={() => window.location.reload()} >Submit another response</button> : <>
           <input placeholder="full name" type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={name} onChange={(e) => HandleNameChange(e.target.value)}></input>
           <div className="flex space-x-2 items-center text-sm">
-            <label className="w-4/6">number of guests</label>
+            <label className="w-full">number of guests</label>
             <select name="cars" id="cars" className="font-bold  border-2 border-gray-400 px-3 py-2 rounded-lg w-2/6" onChange={(e) => HandlePaxChange(e.target.value)} value={pax}>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -84,12 +86,6 @@ function BandungRSVP(props) {
         {msg ?
           <div className="text-green-500 text-sm font-sans h-fit">{msg}</div> : <></>}
       </div>
-
-
-      {/* <div className="pb-2 drop-shadow-lg">
-        <iframe className="w-[350px] mx-auto h-[350px] rounded-lg" src="https://tally.so/r/woGZWe" title="" /> */}
-      {/* <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZ5fXBMmFDF6qHHX7szGJFwRC5XqZAwc9Yq3X8U1DGYQqV9A/viewform?embedded=true" width="640" height="1116" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
-      {/* </div> */}
     </div>
   );
 }
