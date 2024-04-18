@@ -4,7 +4,7 @@ import dataEN from './localization-en.json';
 import dataID from './localization-id.json';
 import dataCH from './localization-ch.json';
 import './App.css';
-import { React, useState, useRef, useEffect } from 'react';
+import { React, useState, useRef } from 'react';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 
@@ -13,7 +13,7 @@ function App() {
   const name = queryParam.get("name");
   const isRsvp = queryParam.get("rsvp") === "true"; // should be true to show bandung rsvp
 
-  const [audioStatus, changeAudioStatus] = useState(true);
+  const [audioStatus, changeAudioStatus] = useState(false);
   const [language, changeLanguageStatus] = useState(1);
   const [data, setData] = useState(dataEN);
 
@@ -106,7 +106,7 @@ function App() {
 
           <div className='flex flex-col gap-3'>
             <div className="flex flex-col">
-              <div className="name-font text-[2.2rem] sm:text-[2.6rem]">David Khowanto Lim  (David)</div>
+              <div className="name-font text-[2.2rem] sm:text-[2.6rem] leading-tight">David Khowanto Lim<br />(David)</div>
               <div className="text-lg capitalize parent-font leading-5">{data.map(d => d.statusSon)}</div>
               <div className='flex justify-center gap-4 w-full mx-auto max-w-3xl'>
                 <div className='w-1/2'>
@@ -123,7 +123,7 @@ function App() {
             <div className="name-font text-[2rem] sm:text-[2.6rem] mb-11">&</div>
 
             <div className="flex flex-col pb-10">
-              <div className="name-font text-[2.2rem] sm:text-[2.6rem]">Eleonora Julianti Mardi Utami (Ellen)</div>
+              <div className="name-font text-[2.2rem] sm:text-[2.6rem] leading-tight">Eleonora Julianti Mardi Utami<br />(Ellen)</div>
               <div className="text-lg capitalize parent-font leading-5">{data.map(d => d.statusDaughter)}</div>
               <div className='flex justify-center gap-4 w-full mx-auto max-w-3xl'>
                 <div className='w-1/2'>
