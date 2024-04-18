@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "de-wedding-invitation"
-  }
+    "default": "de-wedding-invitation",
+    "production": "david-eleonora-wedding"
+  },
+  "targets": {},
+  "etags": {}
 }

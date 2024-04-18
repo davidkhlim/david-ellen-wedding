@@ -18,7 +18,7 @@ function App() {
   const [data, setData] = useState(dataEN);
 
   const languageHandling = async () => {
-    if(language == 1){
+    if (language == 1) {
       setData(dataID);
       changeLanguageStatus(2);
     }
@@ -26,7 +26,7 @@ function App() {
       setData(dataCH);
       changeLanguageStatus(3);
     }
-    else if (language == 3){
+    else if (language == 3) {
       setData(dataEN);
       changeLanguageStatus(1);
     }
@@ -62,6 +62,32 @@ function App() {
       {/* OPENING IMAGE */}
       <div className="min-h-screen fade-in relative w-full capitalize">
         <img src="/images/opening.jpg" className='absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]'></img>
+        {/* <div id="default-carousel" className="absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]" data-carousel="slide">
+          <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="/images/opening.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            </div>
+            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="/images/opening-2.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            </div>
+            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="/images/opening-3.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            </div>
+            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="/images/opening-4.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            </div>
+            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="/images/opening.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            </div>
+          </div>
+          <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+            <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+          </div>
+        </div> */}
         <div className="m-4 flex gap-8 justify-center text-center bg-linear items-center z-10">
           <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
           <div className="text-lg text-black top-font">
@@ -91,12 +117,13 @@ function App() {
       <div className="flex flex-col mx-auto w-full justify-items-center text-center fade-in -z-1">
         {/* GROOM, BRIDE, FAMILY NAMES */}
         <div className="grid gap-20 w-full pb-12 border-b-8 border-white drop-shadow-lg shadow-inner bg-names">
-          <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#999090] top-font text-lg font-medium mx-auto rounded-xl">
+          {/* <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#999090] top-font text-lg font-medium mx-auto rounded-xl"> */}
+          <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#333333] top-font text-lg font-medium mx-auto rounded-xl">
             <div className='capitalize'>{data.map(d => d.recipient)},</div>
             <div className="w-fit pt-2 text-2xl mx-auto capitalize">{name ? name : "Family and Friends"}</div>
           </div>
 
-          <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-16 lowercase">
+          <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-16 lowercase px-4">
             <div>
               <p className="font-extrabold">{data.map(d => d.bible)}</p>
               <p>{data.map(d => d['bible-verse'])}</p>
@@ -120,7 +147,7 @@ function App() {
               </div>
             </div>
 
-            <div className="name-font text-[2rem] sm:text-[2.6rem] mb-11">&</div>
+            <div className="name-font text-[2rem] sm:text-[2.6rem] mb-8 mt-8">&</div>
 
             <div className="flex flex-col pb-10">
               <div className="name-font text-[2.2rem] sm:text-[2.6rem] leading-tight">Eleonora Julianti Mardi Utami<br />(Ellen)</div>
@@ -179,7 +206,7 @@ function App() {
             <div className="content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">{data.map(d => d.weddingGift)}</div>
               <div className="max-w-[25rem] mx-auto">
-              {data.map(d => d.weddingGiftDesc)}<br/>{data.map(d => d.weddingGiftDescDetail)}
+                {data.map(d => d.weddingGiftDesc)}<br />{data.map(d => d.weddingGiftDescDetail)}
               </div>
               <BankAcc name="david_bca"></BankAcc>
               <BankAcc name="ellen_bca"></BankAcc>
