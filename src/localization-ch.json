@@ -1,12 +1,13 @@
 [
   {
     "heading": "婚礼",
-    "recipient":"光臨",
+    "recipient": "光臨",
+    "recipientName": "家人和朋友",
     "bible": "歌罗西书 3:14",
     "bible-verse": "在这一切之外，要存着爱心，爱心就是联络全德的。",
     "welcome": "受到上帝恩典的拥抱，我们欢迎您参加我们的婚礼庆典",
-    "statusSon":  "长子",
-    "statusDaughter":  "长女",
+    "statusSon": "长子",
+    "statusDaughter": "长女",
     "holyMatrimony": "婚姻圣事",
     "holyMatrimonyDate": "2024年 5月 18号，星期六",
     "holyMatrimonyLoc": "圣彼得天主教大教堂",
@@ -21,9 +22,9 @@
     "rsvpFormGuest": "客人数",
     "rsvpFormSubmit": "我会去的",
     "weddingGift": "结婚礼物",
-    "weddingGiftDesc":"您的存在和祈祷确实特别无价。",
-    "weddingGiftDescDetail":"您真诚爱的礼物增添更多欢乐对我们的婚礼日子。",
-    "thankyou" :"感谢您的光临、祝福、和希望",
-    "thankyouFamily" : "和家人一起"
+    "weddingGiftDesc": "您的存在和祈祷确实特别无价。",
+    "weddingGiftDescDetail": "您真诚爱的礼物增添更多欢乐对我们的婚礼日子。",
+    "thankyou": "感谢您的光临、祝福、和希望",
+    "thankyouFamily": "和家人一起"
   }
 ]

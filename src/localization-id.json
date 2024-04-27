@@ -1,29 +1,30 @@
 [
   {
-    "heading":  "pernikahan",
+    "heading": "pernikahan",
     "recipient": "kepada",
+    "recipientName": "Keluarga dan Teman",
     "bible": "kolose 3:14",
     "bible-verse": "Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan.",
     "welcome": "oleh karena rahmat Tuhan Yang Maha Esa, kami menyambut Anda di perayaan pernikahan kami",
     "statusSon": "putra sulung dari",
-    "statusDaughter":"putri sulung dari",
+    "statusDaughter": "putri sulung dari",
     "holyMatrimony": "pemberkatan",
     "holyMatrimonyDate": "Sabtu, 18 Mei 2024",
     "holyMatrimonyLoc": "Gereja Katedral St. Petrus",
     "getDirection": "Lihat Lokasi",
     "reception": "resepsi",
-    "receptionDate":  "Sabtu, 25 Mei 2024",
+    "receptionDate": "Sabtu, 25 Mei 2024",
     "receptionLoc": "Restoran Star",
     "receptionLocDetail": "Function Hall Lt. 3",
-    "receptionRsvp":"rsvp resepsi",
+    "receptionRsvp": "rsvp resepsi",
     "receptionRsvpDesc": "silakan mengisi kedatangan anda",
-    "rsvpFormName":"nama lengkap",
+    "rsvpFormName": "nama lengkap",
     "rsvpFormGuest": "jumlah tamu",
     "rsvpFormSubmit": "saya akan hadir",
     "weddingGift": "hadiah pernikahan",
     "weddingGiftDesc": "Kehadiran dan doa And sungguh berharga.",
     "weddingGiftDescDetail": "Pemberian tulus Anda akan menambah kegembiraan yang tak terukur pada hari kebahagiaan kami.",
     "thankyou": "Terima kasih atas kehadiran, doa, dan harapan Anda",
-    "thankyouFamily" :"bersama keluarga"
+    "thankyouFamily": "bersama keluarga"
   }
 ]

@@ -61,33 +61,7 @@ function App() {
 
       {/* OPENING IMAGE */}
       <div className="min-h-screen fade-in relative w-full capitalize">
-        <img src="/images/opening.jpg" className='absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]'></img>
-        {/* <div id="default-carousel" className="absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]" data-carousel="slide">
-          <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-            <div className="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/images/opening.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            <div className="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/images/opening-2.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            <div className="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/images/opening-3.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            <div className="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/images/opening-4.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            <div className="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/images/opening.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-          </div>
-          <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-          </div>
-        </div> */}
+        <img src="/images/opening.jpg.webp" className='absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]'></img>
         <div className="m-4 flex gap-8 justify-center text-center bg-linear items-center z-10">
           <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
           <div className="text-lg text-black top-font">
@@ -120,7 +94,7 @@ function App() {
           {/* <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#999090] top-font text-lg font-medium mx-auto rounded-xl"> */}
           <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#333333] top-font text-lg font-medium mx-auto rounded-xl">
             <div className='capitalize'>{data.map(d => d.recipient)},</div>
-            <div className="w-fit pt-2 text-2xl mx-auto capitalize">{name ? name : "Family and Friends"}</div>
+            <div className="w-fit pt-2 text-2xl mx-auto capitalize">{name ? name : data.map(d => d.bible)}</div>
           </div>
 
           <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-16 lowercase px-4">
@@ -215,9 +189,9 @@ function App() {
 
           {/* OTHER IMAGES */}
           <div className="mx-auto w-fit flex flex-wrap gap-10 items-center justify-center rounded-lg drop-shadow-lg">
-            <img src='/images/bottom1.jpg' className="w-40 rounded-full border-4 border-white" />
-            <img src='/images/bottom2.jpg' className="w-40 rounded-full border-4 border-white" />
-            <img src='/images/bottom3.jpg' className="w-40 rounded-full border-4 border-white" />
+            <img src='/images/bottom1.jpg.webp' className="w-40 rounded-full border-4 border-white" />
+            <img src='/images/bottom2.jpg.webp' className="w-40 rounded-full border-4 border-white" />
+            <img src='/images/bottom3.jpg.webp' className="w-40 rounded-full border-4 border-white" />
           </div>
 
           <div className="flex gap-8 pb-4 justify-center text-center bg-linear items-center">
