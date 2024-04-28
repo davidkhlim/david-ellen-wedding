@@ -4,7 +4,7 @@ import BankAcc from "./components/bank-acc.js";
 import OpeningCarousel from "./components/opening-carousel.js";
 import dataEN from './localization-en.json';
 import dataID from './localization-id.json';
-import dataCH from './localization-ch.json';
+import dataZH from './localization-zh.json';
 import './App.css';
 import { React, useState, useRef, useEffect } from 'react';
 import { FaVolumeMute, FaVolumeUp, FaUserCheck } from 'react-icons/fa';
@@ -12,13 +12,16 @@ import Tooltip from '@mui/material/Tooltip';
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import { createClient } from "@supabase/supabase-js";
 
+const LANG = { ID: 1, ZH: 2, EN: 3 };
+
 function App() {
   const queryParam = new URLSearchParams(window.location.search);
   const name = queryParam.get("name");
+  const lang = Object.keys(LANG).includes(queryParam.get("lang")) ? queryParam.get("lang") : "EN";
   const isRsvp = queryParam.get("rsvp") === "true"; // should be true to show bandung rsvp
-
+  console.log(lang)
   const [audioStatus, changeAudioStatus] = useState(false);
-  const [language, changeLanguageStatus] = useState(1);
+  const [language, changeLanguageStatus] = useState(LANG[lang]);
   const [data, setData] = useState(dataEN);
   const [musicTooltipOpen, setMusicTooltipOpen] = useState(true);
   const [musicTooltipMsg, setMusicTooltipMsg] = useState(data.musicTooltipMsgOff);
@@ -34,6 +37,7 @@ function App() {
 
   useEffect(() => {
     musicHandling();
+    languageHandling();
   }, []);
 
   useEffect(() => {
@@ -50,7 +54,7 @@ function App() {
       changeLanguageStatus(2);
     }
     else if (language === 2) {
-      setData(dataCH);
+      setData(dataZH);
       changeLanguageStatus(3);
     }
     else if (language === 3) {
@@ -309,7 +313,7 @@ function App() {
                 David & Ellen
               </div>
               <div>{data.map(d => d.thankyouFamily)}</div>
-              <div className='flex flex-col justify-center items-center'>
+              <div className='flex flex-col justify-center items-center pb-4'>
                 <img src="/images/img-bible.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
                 <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm mb-2 w-fit' target="_blank" rel="noopener noreferrer" href="/UndanganFisik.pdf" >{data.map(d => d.seePhysInvt)}</a>
                 <button className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm w-fit' onClick={() => setShowOtherPhotos(!showOtherPhotos)}>{data.map(d => d.seeOtherPhotos)}</button>

@@ -7,6 +7,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, Link } from "react-router-dom";
+import InvitationBuilder from './InvitationBuilder';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,7 @@ root.render(
       {/* <App /> */}
       <Routes>
         <Route index element={<App />} />
-        {/* <Route path="dashboard" element={<Dashboard />} /> */}
+        <Route path="invitation-builder" element={<InvitationBuilder />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
