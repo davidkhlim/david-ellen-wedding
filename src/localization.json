@@ -1,0 +1,129 @@
+[
+  {
+    "heading": {
+      "id": "pernikahan",
+      "en": "the wedding of",
+      "ch": "婚礼"
+    },
+    "recipient": {
+      "id": "kepada",
+      "en": "dear",
+      "ch": "光臨"
+    },
+    "bible": {
+      "id": "kolose 3:14",
+      "en": "colossians 3:14",
+      "ch": "歌罗西书 3:14"
+    },
+    "bible-verse": {
+      "id": "Dan di atas semuanya itu: kenakanlah kasih, sebagai pengikat yang mempersatukan dan menyempurnakan.",
+      "en": "Above all, clothe yourselves with love, which binds us all together in perfect harmony.",
+      "ch": "在这一切之外，要存着爱心，爱心就是联络全德的。"
+    },
+    "welcome": {
+      "id": "oleh karena rahmat Tuhan Yang Maha Esa, kami menyambut Anda di perayaan pernikahan kami",
+      "en": "embraced by god's grace we welcome you to our wedding celebration",
+      "ch": "受到上帝恩典的拥抱，我们欢迎您参加我们的婚礼庆典"
+    },
+    "statusSon": {
+      "id": "putra sulung dari",
+      "en": "first son of",
+      "ch": "长子"
+    },
+    "statusDaughter": {
+      "id": "putri sulung dari",
+      "en": "first daughter of",
+      "ch": "长女"
+    },
+    "holyMatrimony": {
+      "id": "pemberkatan",
+      "en": "holy matrimony",
+      "ch": "婚姻圣事"
+    },
+    "holyMatrimonyDate": {
+      "id": "Sabtu, 18 Mei 2024",
+      "en": "Saturday, 18th May 2024",
+      "ch": "2024年 5月 18号，星期六"
+    },
+    "holyMatrimonyLoc": {
+      "id": "Gereja Katedral St. Petrus",
+      "en": "Saint Peter Cathedral",
+      "ch": "圣彼得天主教大教堂"
+    },
+    "getDirection": {
+      "id": "Lihat Lokasi",
+      "en": "Get Direction",
+      "ch": "得到指引"
+    },
+    "reception": {
+      "id": "resepsi",
+      "en": "reception",
+      "ch": "婚宴"
+    },
+    "receptionDate": {
+      "id": "Sabtu, 25 Mei 2024",
+      "en": "Saturday, 25th May 2024",
+      "ch": "2024年 5月 25号，星期六"
+    },
+    "receptionLoc": {
+      "id": "Restoran Star",
+      "en": "Star Restaurant",
+      "ch": "Star 餐厅"
+    },
+    "receptionLocDetail": {
+      "id": "Function Hall Lt. 3",
+      "en": "Function Hall 3rd Floor",
+      "ch": "Function Hall 三楼"
+    },
+    "receptionRsvp": {
+      "id": "rsvp resepsi",
+      "en": "reception rsvp",
+      "ch": "婚宴敬请回复"
+    },
+    "receptionRsvpDesc": {
+      "id": "silakan mengisi kedatangan anda",
+      "en": "please let us know if you'll join us",
+      "ch": "请先通知我们比如愿意加入我们的婚宴"
+    },
+    "rsvpFormName": {
+      "id": "nama lengkap",
+      "en": "full name",
+      "ch": "姓名"
+    },
+    "rsvpFormGuest": {
+      "id": "jumlah tamu",
+      "en": "number of guests",
+      "ch": "客人数"
+    },
+    "rsvpFormSubmit": {
+      "id": "saya akan hadir",
+      "en": "i'll be there",
+      "ch": "我会去的"
+    },
+    "weddingGift": {
+      "id": "hadiah pernikahan",
+      "en": "wedding gifts",
+      "ch": "结婚礼物"
+    },
+    "weddingGiftDesc": {
+      "id": "Kehadiran dan doa And sungguh berharga.",
+      "en": "Your presence and prayers are truly priceless.",
+      "ch": "您的存在和祈祷确实特别无价。"
+    },
+    "weddingGiftDescDetail": {
+      "id": "Pemberian tulus Anda akan menambah kegembiraan yang tak terukur pada hari kebahagiaan kami.",
+      "en": "Your heartfelt gift of love would add immeasurable joy to our day.",
+      "ch": "您真诚爱的礼物增添更多欢乐对我们的婚礼日子。"
+    },
+    "thankyou" :{
+      "id": "Terima kasih atas kehadiran, doa, dan harapan Anda",
+      "en": "Thank you for your presence and warm wishes",
+      "ch": "感谢您的光临、祝福、和希望"
+    },
+    "thankyouFamily" :{
+      "id": "bersama keluarga",
+      "en": "with the family",
+      "ch": "和家人一起"
+    }
+  }
+]

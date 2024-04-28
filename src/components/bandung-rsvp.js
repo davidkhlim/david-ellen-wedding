@@ -1,7 +1,6 @@
-// import { createClient } from "@supabase/supabase-js";
-import { createClient } from "@supabase/supabase-js"
+import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 function BandungRSVP(props) {
   const [data, setData] = useState(props.lang);
@@ -12,8 +11,16 @@ function BandungRSVP(props) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [msg, setMsg] = useState("");
 
-  const [title, setTitle] = useState(data.receptionRsvp);
-  const [description, setDescription] = useState(data.receptionRsvp);
+  const [holyMatrimonyDate, setHolyMatrimonyDate] = useState(data.holyMatrimonyDate);
+  const [getDirection, setGetDirection] = useState(data.getDirection);
+  const [title, setTitle] = useState(data.rsvpTitle);
+  const [description, setDescription] = useState(data.rsvpDesc);
+  const [rsvpResponseDoneButton, setRsvpResponseDoneButton] = useState(data.rsvpResponseDoneButton);
+  const [rsvpResponseCome, setRsvpResponseCome] = useState(data.rsvpResponseCome);
+  const [rsvpResponseNotCome, setRsvpResponseNotCome] = useState(data.rsvpResponseNotCome);
+  const [rsvpNameErr, setRsvpNameErr] = useState(data.rsvpNameErr);
+  const [rsvpGuestCountErr, setRsvpGuestCountErr] = useState(data.rsvpGuestCountErr);
+  const [rsvpAddToCal, setRsvpAddToCal] = useState(data.addToCalendar);
   const [placeholderName, setPlaceholderName] = useState("");
   const [guest, setGuest] = useState("");
   const [submit, setSubmit] = useState("");
@@ -24,20 +31,28 @@ function BandungRSVP(props) {
       setPax("");
       setPaxError("");
       setNameError("");
-      setMsg("We're thrilled you'll be joining us to share in this special day!");
+      setMsg(rsvpResponseCome);
       if (pax == 0) {
-        setMsg("It's unfortunate you won't be able to join us—we were really hoping to share this special day with you.");
+        setMsg(rsvpResponseNotCome);
       }
     }
   }, [isSuccess]);
 
   useEffect(() => {
-      setTitle(props.lang.map(d => d.receptionRsvp));
-      setGuest(props.lang.map(d => d.rsvpFormGuest));
-      setDescription(props.lang.map(d => d.receptionRsvpDesc));
-      setPlaceholderName(props.lang.map(d => d.rsvpFormName));
-      setSubmit(props.lang.map(d => d.rsvpFormSubmit));
-  }, props.lang)
+    setGetDirection(props.lang.map(d => d.getDirection));
+    setHolyMatrimonyDate(props.lang.map(d => d.holyMatrimonyDate));
+    setTitle(props.lang.map(d => d.rsvpTitle));
+    setGuest(props.lang.map(d => d.rsvpFormGuest));
+    setRsvpResponseDoneButton(props.lang.map(d => d.rsvpResponseDoneButton));
+    setRsvpResponseCome(props.lang.map(d => d.rsvpResponseCome));
+    setRsvpResponseNotCome(props.lang.map(d => d.rsvpResponseNotCome));
+    setRsvpNameErr(props.lang.map(d => d.rsvpNameErr));
+    setRsvpGuestCountErr(props.lang.map(d => d.rsvpGuestCountErr));
+    setDescription(props.lang.map(d => d.rsvpDesc));
+    setPlaceholderName(props.lang.map(d => d.rsvpFormName));
+    setSubmit(props.lang.map(d => d.rsvpFormSubmit));
+    setRsvpAddToCal(props.lang.map(d => d.addToCalendar));
+  }, props.lang);
 
   async function SubmitForm() {
     const supabase = createClient("https://udwruewtbwimrrlfekig.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkd3J1ZXd0YndpbXJybGZla2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY0NjY4ODQsImV4cCI6MjAyMjA0Mjg4NH0.bd5izwVQucwICbx5cj_we0MnKQYvCR4fB8Ypts-_2JI");
@@ -46,14 +61,14 @@ function BandungRSVP(props) {
       return;
     }
     const { data } = await supabase.from("wedding-dinner-rsvp").insert({ name: name, pax: pax });
-    console.log(data);
 
+    supabase.
     setIsSuccess(true);
   };
 
   function HandleNameChange(name) {
     if (!name) {
-      setNameError("Please enter your name");
+      setNameError(rsvpNameErr);
       return false;
     }
     setName(name);
@@ -62,7 +77,7 @@ function BandungRSVP(props) {
 
   function HandlePaxChange(pax) {
     if (pax < 0) {
-      setPaxError("Please enter a valid number");
+      setPaxError(rsvpGuestCountErr);
       return false;
     }
     setPax(pax);
@@ -71,15 +86,28 @@ function BandungRSVP(props) {
 
   return (
     <div className="content-font text-lg font-medium tracking-wider leading-9">
-      <div className="font-extrabold">{title}</div>
-      <div>{description}</div>
-
       <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-8 p-8 rounded-lg shadow">
-        {isSuccess ? <button className="bg-[#999090] p-2 rounded-full text-white text-sm" onClick={() => window.location.reload()} >Submit another response</button> : <>
+
+        <div className="font-extrabold">{title}</div>
+        <div>{description}</div>
+
+        {/* SCHEDULE */}
+        <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9">
+          <div>{holyMatrimonyDate}</div>
+          <div>18.00 WIB </div>
+          <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9" >Royal Dynasty Restaurant</a>
+          <div className="mx-auto">
+            Jl. Jend. Sudirman No.232A <br /> Kota Bandung
+          </div>
+          <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9">{getDirection}</a>
+        </div>
+
+        {/* FORM */}
+        {isSuccess ? <button className="bg-[#999090] p-2 rounded-full text-white text-sm" onClick={() => window.location.reload()} >{rsvpResponseDoneButton}</button> : <>
           <input placeholder={placeholderName} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={name} onChange={(e) => HandleNameChange(e.target.value)}></input>
           <div className="flex space-x-2 items-center text-sm">
             <label className="w-full text-right">{guest}</label>
-            <select name="cars" id="cars" className="font-bold  border-2 border-gray-400 px-3 py-2 rounded-lg w-2/6" onChange={(e) => HandlePaxChange(e.target.value)} value={pax}>
+            <select name="guests" id="guests" className="font-bold  border-2 border-gray-400 px-3 py-2 rounded-lg w-2/6" onChange={(e) => HandlePaxChange(e.target.value)} value={pax}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -96,12 +124,26 @@ function BandungRSVP(props) {
           <div>{nameError}</div>
           <div>{paxError}</div>
         </div> : <></>}
-
         {msg ?
-          <div className="text-green-500 text-sm font-sans h-fit">{msg}</div> : <></>}
+          <div className="text-green-500 text-sm font-sans h-fit"><p>{msg}</p>
+            <AddToCalendarButton
+              name="David & Ellen Wedding Banquet"
+              description="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9"
+              startDate="2024-05-18"
+              startTime="18:00"
+              endTime="20:00"
+              timeZone="Asia/Jakarta"
+              location="Royal Dynasty Restaurant, Gedung Graha Sudirman Lt.1, Jl. Jend. Sudirman No.232A, Kb. Jeruk, Kec. Andir, Kota Bandung, Jawa Barat 40181, Indonesia"
+              options="'Apple','Google','Outlook.com','Yahoo','iCal'"
+              buttonStyle="round"
+              trigger="click"
+              hideBackground
+              size="5"
+              inline
+              label={rsvpAddToCal[0]} /></div> : <></>}
       </div>
     </div>
   );
 }
 
-export default BandungRSVP;;
+export default BandungRSVP;
