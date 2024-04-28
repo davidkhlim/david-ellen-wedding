@@ -19,7 +19,7 @@ function App() {
   const name = queryParam.get("name");
   const lang = Object.keys(LANG).includes(queryParam.get("lang")) ? queryParam.get("lang") : "EN";
   const isRsvp = queryParam.get("rsvp") === "true"; // should be true to show bandung rsvp
-  console.log(lang)
+
   const [audioStatus, changeAudioStatus] = useState(false);
   const [language, changeLanguageStatus] = useState(LANG[lang]);
   const [data, setData] = useState(dataEN);
@@ -31,7 +31,8 @@ function App() {
     note: "",
     charCount: 0,
     submitted: false
-  })
+  });
+  const [submitWishCount, setSubmitWishCount] = useState(0);
   const myRef = useRef();
   const MAX_TEXTAREA_CHAR = 512;
 
@@ -95,6 +96,7 @@ function App() {
     const supabase = createClient("https://udwruewtbwimrrlfekig.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkd3J1ZXd0YndpbXJybGZla2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY0NjY4ODQsImV4cCI6MjAyMjA0Mjg4NH0.bd5izwVQucwICbx5cj_we0MnKQYvCR4fB8Ypts-_2JI");
     const { data } = await supabase.from("wedding-wishes").insert({ name: wishObj.name, note: wishObj.note.slice(0, MAX_TEXTAREA_CHAR) });
     setWishObj({ ...wishObj, submitted: true });
+    setSubmitWishCount(submitWishCount + 1);
   };
 
   return (
@@ -280,8 +282,10 @@ function App() {
               <input placeholder={data.map(d => d.rsvpFormName)} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={wishObj.name} onChange={handleNameChange} />
               <textarea type='textarea' placeholder={data.map(d => d.noteToCouplePlaceholder)} className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold h-28 normal-case" minLength={0} maxLength={MAX_TEXTAREA_CHAR} value={wishObj.note} onChange={handleNoteChange} />
               <p className=" text-xs text-right">{`${wishObj.charCount}/${MAX_TEXTAREA_CHAR}`}</p>
-              <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm" onClick={handleSubmitNote} >{data.map(d => d.submit)}</button>
-              {wishObj.submitted ? <FaUserCheck /> : null}
+              <div className='flex flex-row items-center'>
+                <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm w-full" onClick={handleSubmitNote} >{data.map(d => d.submit) + ' ' + submitWishCount + 'x'}</button>
+                {wishObj.submitted ? <FaUserCheck className='text-green-500' /> : <></>}
+              </div>
             </div>
           </div>
 
