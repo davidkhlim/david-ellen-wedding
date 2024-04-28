@@ -1,5 +1,3 @@
-// TODO: create route for generating invitation
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
