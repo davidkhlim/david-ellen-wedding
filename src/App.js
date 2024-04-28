@@ -7,11 +7,10 @@ import dataID from './localization-id.json';
 import dataCH from './localization-ch.json';
 import './App.css';
 import { React, useState, useRef, useEffect } from 'react';
-import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+import { FaVolumeMute, FaVolumeUp, FaUserCheck } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip';
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
-
-
+import { createClient } from "@supabase/supabase-js";
 
 function App() {
   const queryParam = new URLSearchParams(window.location.search);
@@ -24,7 +23,14 @@ function App() {
   const [musicTooltipOpen, setMusicTooltipOpen] = useState(true);
   const [musicTooltipMsg, setMusicTooltipMsg] = useState(data.musicTooltipMsgOff);
   const [showOtherPhotos, setShowOtherPhotos] = useState(false);
+  const [wishObj, setWishObj] = useState({
+    name: name,
+    note: "",
+    charCount: 0,
+    submitted: false
+  })
   const myRef = useRef();
+  const MAX_TEXTAREA_CHAR = 512;
 
   useEffect(() => {
     musicHandling();
@@ -66,6 +72,26 @@ function App() {
     }
   };
 
+  const handleNameChange = (e) => {
+    if (!e.target.value) {
+      setWishObj({ ...wishObj, name: name });
+    }
+    setWishObj({ ...wishObj, name: e.target.value });
+  };
+
+  const handleNoteChange = (e) => {
+    let obj = { ...wishObj, charCount: e.target.value.length };
+    if (!e.target.value) {
+      setWishObj({ ...obj, note: "" });
+    }
+    setWishObj({ ...obj, note: e.target.value });
+  };
+
+  const handleSubmitNote = async () => {
+    const supabase = createClient("https://udwruewtbwimrrlfekig.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkd3J1ZXd0YndpbXJybGZla2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY0NjY4ODQsImV4cCI6MjAyMjA0Mjg4NH0.bd5izwVQucwICbx5cj_we0MnKQYvCR4fB8Ypts-_2JI");
+    const { data } = await supabase.from("wedding-wishes").insert({ name: wishObj.name, note: wishObj.note.slice(0, MAX_TEXTAREA_CHAR) });
+    setWishObj({ ...wishObj, submitted: true });
+  };
 
   return (
     <div className="flex flex-col overflow-hidden h-max">
@@ -199,7 +225,7 @@ function App() {
               buttonStyle="date"
               trigger="click"
               hideBackground
-              size="5"
+              size="3"
               inline
               label={data.map(d => d.addToCalendar)[0]} />
           </div>
@@ -230,7 +256,7 @@ function App() {
               buttonStyle="date"
               trigger="click"
               hideBackground
-              size="5"
+              size="3"
               inline
               label={data.map(d => d.addToCalendar)[0]}
               open={true}
@@ -244,12 +270,14 @@ function App() {
             : null
           }
           {/* NOTES TO COUPLE */}
-          <div className="w-full mx-auto">
+          <div className="w-full mx-auto sm:w-1/2 " >
             <div className="flex flex-col mx-3 gap-2 content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">{data.map(d => d.noteToCouple)}</div>
-              <input placeholder={data.map(d => d.rsvpFormName)} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={name} />
-              <textarea type='textarea' placeholder={data.map(d => d.noteToCouple)} className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold h-28" minLength={0} maxLength={512} />
-              <button className="bg-[#999090] p-2 rounded-full text-white text-sm"  >{data.map(d => d.submit)}</button>
+              <input placeholder={data.map(d => d.rsvpFormName)} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={wishObj.name} onChange={handleNameChange} />
+              <textarea type='textarea' placeholder={data.map(d => d.noteToCouplePlaceholder)} className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold h-28 normal-case" minLength={0} maxLength={MAX_TEXTAREA_CHAR} value={wishObj.note} onChange={handleNoteChange} />
+              <p className=" text-xs text-right">{`${wishObj.charCount}/${MAX_TEXTAREA_CHAR}`}</p>
+              <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm" onClick={handleSubmitNote} >{data.map(d => d.submit)}</button>
+              {wishObj.submitted ? <FaUserCheck /> : null}
             </div>
           </div>
 

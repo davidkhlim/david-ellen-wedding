@@ -8,12 +8,12 @@ const slides = [
 ];
 
 export default function OpeningCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide) => (currentSlide === slides.length - 1 ? 0 : currentSlide + 1));
-    }, 5000);
+    }, 7000);
     return () => {
       clearInterval(interval);
     };

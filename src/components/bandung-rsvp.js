@@ -21,6 +21,7 @@ function BandungRSVP(props) {
   const [rsvpNameErr, setRsvpNameErr] = useState(data.rsvpNameErr);
   const [rsvpGuestCountErr, setRsvpGuestCountErr] = useState(data.rsvpGuestCountErr);
   const [rsvpAddToCal, setRsvpAddToCal] = useState(data.addToCalendar);
+  const [rsvpFormDeadline, setRsvpFormDeadline] = useState(data.rsvpFormDeadline);
   const [placeholderName, setPlaceholderName] = useState("");
   const [guest, setGuest] = useState("");
   const [submit, setSubmit] = useState("");
@@ -52,17 +53,17 @@ function BandungRSVP(props) {
     setPlaceholderName(props.lang.map(d => d.rsvpFormName));
     setSubmit(props.lang.map(d => d.rsvpFormSubmit));
     setRsvpAddToCal(props.lang.map(d => d.addToCalendar));
+    setRsvpFormDeadline(props.lang.map(d => d.rsvpFormDeadline));
   }, props.lang);
 
   async function SubmitForm() {
-    const supabase = createClient("https://udwruewtbwimrrlfekig.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkd3J1ZXd0YndpbXJybGZla2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY0NjY4ODQsImV4cCI6MjAyMjA0Mjg4NH0.bd5izwVQucwICbx5cj_we0MnKQYvCR4fB8Ypts-_2JI");
     let isValid = HandleNameChange(name) && HandlePaxChange(pax);
     if (!isValid) {
       return;
     }
+    const supabase = createClient("https://udwruewtbwimrrlfekig.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkd3J1ZXd0YndpbXJybGZla2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY0NjY4ODQsImV4cCI6MjAyMjA0Mjg4NH0.bd5izwVQucwICbx5cj_we0MnKQYvCR4fB8Ypts-_2JI");
     const { data } = await supabase.from("wedding-dinner-rsvp").insert({ name: name, pax: pax });
 
-    supabase.
     setIsSuccess(true);
   };
 
@@ -86,10 +87,10 @@ function BandungRSVP(props) {
 
   return (
     <div className="content-font text-lg font-medium tracking-wider leading-9">
-      <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-8 p-8 rounded-lg shadow">
+      <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-4 p-8 rounded-lg shadow">
 
         <div className="font-extrabold">{title}</div>
-        <div>{description}</div>
+        <div className=" text-base">{description}</div>
 
         {/* SCHEDULE */}
         <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9">
@@ -103,10 +104,10 @@ function BandungRSVP(props) {
         </div>
 
         {/* FORM */}
-        {isSuccess ? <button className="bg-[#999090] p-2 rounded-full text-white text-sm" onClick={() => window.location.reload()} >{rsvpResponseDoneButton}</button> : <>
+        {isSuccess ? <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm sm:w-max self-center" onClick={() => window.location.reload()} >{rsvpResponseDoneButton}</button> : <>
           <input placeholder={placeholderName} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={name} onChange={(e) => HandleNameChange(e.target.value)}></input>
           <div className="flex space-x-2 items-center text-sm">
-            <label className="w-full text-right">{guest}</label>
+            <label className="w-full text-right font-bold">{guest}</label>
             <select name="guests" id="guests" className="font-bold  border-2 border-gray-400 px-3 py-2 rounded-lg w-2/6" onChange={(e) => HandlePaxChange(e.target.value)} value={pax}>
               <option value="0">0</option>
               <option value="1">1</option>
@@ -116,7 +117,8 @@ function BandungRSVP(props) {
               <option value="5">5</option>
             </select>
           </div>
-          <button className="bg-[#999090] p-2 rounded-full text-white text-sm" onClick={SubmitForm} >{submit}</button>
+          <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm" onClick={SubmitForm} >{submit}</button>
+          <p className="text-xs">*{rsvpFormDeadline}</p>
         </>
 
         }
@@ -125,7 +127,8 @@ function BandungRSVP(props) {
           <div>{paxError}</div>
         </div> : <></>}
         {msg ?
-          <div className="text-green-500 text-sm font-sans h-fit"><p>{msg}</p>
+          <div className="text-green-500 text-sm font-sans h-fit sm:w-max">
+            <p className="mb-2 text-center max-w-[25rem] mx-auto">{msg}</p>
             <AddToCalendarButton
               name="David & Ellen Wedding Banquet"
               description="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9"
@@ -135,10 +138,10 @@ function BandungRSVP(props) {
               timeZone="Asia/Jakarta"
               location="Royal Dynasty Restaurant, Gedung Graha Sudirman Lt.1, Jl. Jend. Sudirman No.232A, Kb. Jeruk, Kec. Andir, Kota Bandung, Jawa Barat 40181, Indonesia"
               options="'Apple','Google','Outlook.com','Yahoo','iCal'"
-              buttonStyle="round"
+              buttonStyle="date"
               trigger="click"
               hideBackground
-              size="5"
+              size="3"
               inline
               label={rsvpAddToCal[0]} /></div> : <></>}
       </div>
