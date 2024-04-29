@@ -86,11 +86,11 @@ function BandungRSVP(props) {
   }
 
   return (
-    <div className="content-font text-lg font-medium tracking-wider leading-9">
+    <div className="content-font sm:text-xl font-medium tracking-wider leading-9">
       <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-4 p-8 rounded-lg shadow">
 
-        <div className="font-extrabold">{title}</div>
-        <div className=" text-base">{description}</div>
+        <div className="font-extrabold lowercase">{title}</div>
+        <div className="text-base">{description}</div>
 
         {/* SCHEDULE */}
         <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9">
@@ -100,7 +100,7 @@ function BandungRSVP(props) {
           <div className="mx-auto">
             Jl. Jend. Sudirman No.232A <br /> Kota Bandung
           </div>
-          <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9">{getDirection}</a>
+          <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9">{getDirection}</a>
         </div>
 
         {/* FORM */}

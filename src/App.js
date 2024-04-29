@@ -106,7 +106,7 @@ function App() {
     <div className="flex flex-col overflow-hidden h-max">
 
       {/* FLOATING MENU */}
-      <audio autoPlay ref={myRef} src='song.mp3' />
+      <audio ref={myRef} src='song.mp3' loop='true' />
 
       <div className='fixed bottom-0 z-10'>
         <Tooltip open={musicTooltipOpen} title={musicTooltipMsg ? musicTooltipMsg : " "}>
@@ -126,54 +126,65 @@ function App() {
 
 
       {/* OPENING IMAGE */}
-      <div className="min-h-screen fade-in relative w-full capitalize">
+      <div className="min-h-screen relative w-full capitalize">
         {/* <img src={`/images/opening-${1}.jpg.webp`} className='opening-img absolute h-full object-cover sm:w-full -z-10 sm:h-[120%]' /> */}
         <OpeningCarousel />
         <div className="m-4 flex gap-8 justify-center text-center bg-linear items-center z-10 ">
-          <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0 "></div>
-          <div className="text-lg text-black top-font bg-white bg-opacity-50 rounded-3xl p-2">
+          <div className="h-[2px] bg-black grow sm:w-20 sm:grow-0 rounded"></div>
+          <div className="text-lg text-black top-font p-2 px-6">
             <div>{data.map(d => d.heading)}</div>
-            <div className="text-3xl tracking-wider font-medium ">
+            <div className="text-3xl tracking-wider font-medium">
               David & Ellen
             </div>
           </div>
-          <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
+          <div className="h-[2px] bg-black grow sm:w-20 sm:grow-0 rounded"></div>
         </div>
       </div>
 
-      <div id='wave' className='mt-[-12vh]'>
+      <div id='wave' className='mt-[-110px] sm:mt-0'>
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" id='waveSvg'>
-          <path d="M-0.00,49.85 C150.00,149.60 377.76,23.13 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" id="wavePath">
+          <path d="M0.00,50.10 C150.00,150.33 351.20,101.06 500.00,50.10 L500.00,150.33 L0.00,150.33 Z" id="wavePath">
           </path>
         </svg>
       </div>
-      <div id='wave' className='mt-[-5px] mb-[-150px]'>
+      <div id='wave' className='mb-[-135px]'>
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" id='waveSvg'>
-          <path d="M-0.00,49.85 C28.44,40.84 409.93,-42.81 500.00,49.85 L500.00,0.00 L-0.00,0.00 Z" id="wavePath">
+          <path d="M-3.20,79.16 C49.28,35.35 219.14,34.36 500.00,50.10 L500.00,-0.00 L0.00,-0.00 Z" id="wavePath">
           </path>
         </svg>
-      </div>;
+      </div>
+      <div className="mt-[-63px] p-2 grid gap-1 divide-y-2 divide-white text-white top-font text-lg font-medium text-center rounded-xl z-[100]">
+        <div className='capitalize'>{data.map(d => d.recipient)},</div>
+        <div className="w-fit pt-2 text-2xl mx-auto capitalize">{name ? name : data.map(d => d.recipientName)}</div>
+      </div>
 
       {/* CONTENT */}
-      <div className="flex flex-col mx-auto w-full justify-items-center text-center fade-in -z-1">
-        {/* GROOM, BRIDE, FAMILY NAMES */}
-        <div className="grid gap-20 w-full pb-12 border-b-8 border-white drop-shadow-lg shadow-inner bg-names">
-          <div className="mt-5 mb-6 p-2 grid gap-3 divide-y-2 bg-white bg-opacity-70 divide-[#999090] text-[#333333] top-font text-lg font-medium mx-auto rounded-xl">
-            <div className='capitalize'>{data.map(d => d.recipient)},</div>
-            <div className="w-fit pt-2 text-2xl mx-auto capitalize">{name ? name : data.map(d => d.recipientName)}</div>
-          </div>
-
+      <div className="flex flex-col mx-auto w-full justify-items-center text-center -z-1">
           {/* BIBLE & WELCOME INVITATION*/}
-          <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-16 lowercase px-4">
-            <div>
+          <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-16 lowercase p-12 bg-[#f2f2f4]">
+            <div className='leading-7'>
               <p className="font-extrabold">{data.map(d => d.bible)}</p>
               <p>{data.map(d => d['bible-verse'])}</p>
             </div>
-            <div className='p-5 mx-12 text-xl font-semibold'>{data.map(d => d.welcome)}</div>
           </div>
 
+        {/* GROOM, BRIDE, FAMILY NAMES */}
+        <div className="grid gap-20 w-full pb-12 border-8 border-white drop-shadow-lg shadow-inner bg-names">
+
           {/* COUPLE NAMES */}
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col gap-3 pt-20'>
+            
+            {/* WELCOME INVITATION*/}
+            <div className="content-font text-lg font-medium tracking-wider flex flex-col gap-16 lowercase px-4">
+            <div className='p-5 px-5 text-xl font-bold leading-10'>{data.map(d => d.welcome)}</div>
+            </div>
+            {/* OTHER IMAGES */}
+            <div className="mb-8 mx-auto w-fit flex flex-wrap gap-3 sm:gap-6 items-center justify-center rounded-lg drop-shadow-lg">
+              <img src='/images/divider(1).JPG' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/img-bible.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/img-cool.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+            </div>
+
             <div className="flex flex-col">
               <div className="name-font text-[2.2rem] sm:text-[2.6rem] leading-tight">David Khowanto Lim<br />(David)</div>
               <div className="text-lg capitalize parent-font leading-5">{data.map(d => d.statusSon)}</div>
@@ -208,11 +219,13 @@ function App() {
           </div>
         </div>
 
+        <img src='/images/collage.jpg'/>
+
         {/* SCHEDULE */}
-        <div className='flex flex-col gap-24 box-border px-8 schedule lg:bg-cover bg-contain max-w-screen w-screen'>
+        <div className='flex flex-col gap-24 box-border px-8 schedule bg-contain max-w-screen w-screen'>
           {/* BANDUNG */}
-          <div className="mt-20 content-font text-base sm:text-lg font-medium tracking-wider leading-9">
-            <div className='mb-4'>
+          <div className="mt-20 content-font sm:text-xl font-medium tracking-wider">
+            <div className='mb-4 leading-9'>
               <div className="font-extrabold">{data.map(d => d.holyMatrimony)}</div>
               <div>{data.map(d => d.holyMatrimonyDate)}</div>
               <div>14.30 WIB</div>
@@ -220,7 +233,7 @@ function App() {
               <div className="mx-auto">
                 Jl. Merdeka, no. 14<br /> Kota Bandung
               </div>
-              <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7">{data.map(d => d.getDirection)}</a>
+              <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7">{data.map(d => d.getDirection)}</a>
             </div>
             <AddToCalendarButton
               name="David & Ellen Holy Matrimony"
@@ -240,8 +253,8 @@ function App() {
           </div>
 
           {/* PONTIANAK */}
-          <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9">
-            <div className='mb-4'>
+          <div className="content-font sm:text-xl font-medium tracking-wider">
+            <div className='mb-4 leading-9'>
               <div className="font-extrabold">{data.map(d => d.reception)}</div>
               <div>{data.map(d => d.receptionDate)}</div>
               <div>17.00 - 20.00 WIB</div>
@@ -251,7 +264,7 @@ function App() {
               <div className="mx-auto">
                 Jl. Gajah Mada No. 189<br />Kota Pontianak
               </div>
-              <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm z-20' href={"https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8"} target='_blank' rel="noopener noreferrer">{data.map(d => d.getDirection)}</a>
+              <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm z-20' href={"https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8"} target='_blank' rel="noopener noreferrer">{data.map(d => d.getDirection)}</a>
             </div>
             <AddToCalendarButton
               name="David & Ellen Reception"
@@ -296,7 +309,7 @@ function App() {
           <div className="w-full mx-auto">
             <div className="content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">{data.map(d => d.weddingGift)}</div>
-              <div className="max-w-[25rem] mx-auto">
+              <div className="md:max-w-[25rem] mx-auto">
                 {data.map(d => d.weddingGiftDesc)}<br />{data.map(d => d.weddingGiftDescDetail)}
               </div>
               <BankAcc name="david_bca"></BankAcc>
@@ -305,36 +318,33 @@ function App() {
           </div>
 
           {/* OTHER IMAGES */}
-          <div className="mx-auto w-fit flex flex-wrap gap-10 items-center justify-center rounded-lg drop-shadow-lg">
+          <div className="mx-auto w-fit flex flex-wrap gap-10 items-center justify-center rounded-lg drop-shadow-lg pb-12">
             <img src='/images/bottom1.jpg.webp' className="w-40 rounded-full border-4 border-white" />
             <img src='/images/bottom2.jpg.webp' className="w-40 rounded-full border-4 border-white" />
-            <img src='/images/bottom3.jpg.webp' className="w-40 rounded-full border-4 border-white" />
             <img src='/images/bottom4.jpg.webp' className="w-40 rounded-full border-4 border-white" />
-          </div>
-
-          <div className="flex gap-8 justify-center text-center bg-linear items-center align-middle h-full">
-            <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
-            <div className="text-lg text-black top-font">
-              <div>{data.map(d => d.thankyou)}</div>
-              <div className="text-3xl tracking-wider font-medium">
-                David & Ellen
-              </div>
-              <div>{data.map(d => d.thankyouFamily)}</div>
-              <div className='flex flex-col justify-center items-center pb-4'>
-                <img src="/images/img-bible.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
-                <a className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm mb-2 w-fit' target="_blank" rel="noopener noreferrer" href="/UndanganFisik.pdf" >{data.map(d => d.seePhysInvt)}</a>
-                <button className='bg-[#999090] px-5 py-1 text-sm text-white rounded-sm w-fit' onClick={() => setShowOtherPhotos(!showOtherPhotos)}>{data.map(d => d.seeOtherPhotos)}</button>
-                {showOtherPhotos ? <>
-                  <img src="/images/img-cool.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
-                  <img src="/images/img-funny.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' /></>
-                  : null}
-              </div>
-            </div>
-            <div className="h-[1px] bg-black grow sm:w-20 sm:grow-0"></div>
+            <img src='/images/bottom3.jpg.webp' className="w-40 rounded-full border-4 border-white" />
           </div>
         </div>
       </div>
-      {/* THANK YOU */}
+      <div className="flex gap-8 justify-center text-center bg-linear items-center align-middle h-full">
+        <div className="text-lg text-black top-font">
+          <div className='mt-4'>{data.map(d => d.thankyou)}</div>
+          <div className="text-3xl tracking-wider font-medium">
+            David & Ellen
+          </div>
+          <div>{data.map(d => d.thankyouFamily)}</div>
+          {/* <div className='flex flex-col justify-center items-center pb-4'>
+            <img src="/images/img-bible.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
+            <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm mb-2 w-fit' target="_blank" rel="noopener noreferrer" href="/UndanganFisik.pdf" >{data.map(d => d.seePhysInvt)}</a>
+            <button className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm w-fit' onClick={() => setShowOtherPhotos(!showOtherPhotos)}>{data.map(d => d.seeOtherPhotos)}</button>
+            {showOtherPhotos ? <>
+              <img src="/images/img-cool.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
+              <img src="/images/img-funny.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' /></>
+              : null}
+          </div> */}
+        </div>
+      </div>
+          <img src='/images/img-bible.jpg.webp' className='border-t-3 border-white mt-[-91px] -z-10'/>
     </div >
   );
 }
