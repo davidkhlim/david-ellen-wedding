@@ -93,14 +93,14 @@ function BandungRSVP(props) {
         <div className="text-base">{description}</div>
 
         {/* SCHEDULE */}
-        <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9">
+        <div className="content-font text-base sm:text-lg font-medium tracking-wider leading-9 mb-6">
           <div>{holyMatrimonyDate}</div>
           <div>18.00 WIB </div>
           <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9" >Royal Dynasty Restaurant</a>
           <div className="mx-auto">
             Jl. Jend. Sudirman No.232A <br /> Kota Bandung
           </div>
-          <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9">{getDirection}</a>
+          <a className='bg-[#19192a] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/uPfG9h9JYWWdBb2K9">{getDirection}</a>
         </div>
 
         {/* FORM */}

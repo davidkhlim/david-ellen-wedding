@@ -181,8 +181,8 @@ function App() {
             {/* OTHER IMAGES */}
             <div className="mb-8 mx-auto w-fit flex flex-wrap gap-3 sm:gap-6 items-center justify-center rounded-lg drop-shadow-lg">
               <img src='/images/img-cool.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
-              <img src='/images/img-bible.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
-              <img src='/images/divider(1).JPG' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/divider(1).jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/divided(4).jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
             </div>
 
             <div className="flex flex-col">
@@ -219,10 +219,10 @@ function App() {
           </div>
         </div>
 
-        <img src='/images/collage.jpg'/>
+        <img src='/images/collage.jpg.webp'/>
 
         {/* SCHEDULE */}
-        <div className='flex flex-col gap-24 box-border px-8 schedule bg-contain max-w-screen w-screen'>
+        <div className='flex flex-col gap-24 box-border px-8 schedule bg-contain max-w-screen w-screen border-b-8 border-white drop-shadow-lg'>
           {/* BANDUNG */}
           <div className="mt-20 content-font sm:text-xl font-medium tracking-wider">
             <div className='mb-4 leading-9'>
@@ -233,7 +233,7 @@ function App() {
               <div className="mx-auto">
                 Jl. Merdeka, no. 14<br /> Kota Bandung
               </div>
-              <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7">{data.map(d => d.getDirection)}</a>
+              <a className='bg-[#19192a] px-5 py-1 text-sm text-white rounded-sm z-20' target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7">{data.map(d => d.getDirection)}</a>
             </div>
             <AddToCalendarButton
               name="David & Ellen Holy Matrimony"
@@ -264,7 +264,7 @@ function App() {
               <div className="mx-auto">
                 Jl. Gajah Mada No. 189<br />Kota Pontianak
               </div>
-              <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm z-20' href={"https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8"} target='_blank' rel="noopener noreferrer">{data.map(d => d.getDirection)}</a>
+              <a className='bg-[#19192a] px-5 py-1 text-sm text-white rounded-sm z-20' href={"https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8"} target='_blank' rel="noopener noreferrer">{data.map(d => d.getDirection)}</a>
             </div>
             <AddToCalendarButton
               name="David & Ellen Reception"
@@ -292,7 +292,7 @@ function App() {
             : null
           }
           {/* NOTES TO COUPLE */}
-          <div className="w-full mx-auto sm:w-1/2 " >
+          <div className="w-full mx-auto sm:w-1/3 " >
             <div className="flex flex-col mx-3 gap-2 content-font text-lg font-medium tracking-wider leading-9">
               <div className="font-extrabold">{data.map(d => d.noteToCouple)}</div>
               <input placeholder={data.map(d => d.rsvpFormName)} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={wishObj.name} onChange={handleNameChange} />
