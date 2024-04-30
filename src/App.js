@@ -1,9 +1,9 @@
 import BandungRSVP from './components/bandung-rsvp.js';
 import BankAcc from "./components/bank-acc.js";
 import OpeningCarousel from "./components/opening-carousel.js";
-import dataEN from './localization-en.json';
-import dataID from './localization-id.json';
-import dataZH from './localization-zh.json';
+import dataEN from './localization/localization-en.json';
+import dataID from './localization/localization-id.json';
+import dataZH from './localization/localization-zh.json';
 import './App.css';
 import { React, useState, useRef, useEffect } from 'react';
 import { FaVolumeMute, FaVolumeUp, FaUserCheck, FaRegNewspaper } from 'react-icons/fa';
@@ -182,7 +182,7 @@ function App() {
             <div className="mb-8 mx-auto w-fit flex flex-wrap gap-3 sm:gap-6 items-center justify-center rounded-lg drop-shadow-lg">
               <img src='/images/img-cool.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
               <img src='/images/divider(1).jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
-              <img src='/images/divided(4).jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/divider(5).jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
             </div>
 
             <div className="flex flex-col">
@@ -219,14 +219,14 @@ function App() {
           </div>
         </div>
 
-        <img src='/images/collage.jpg.webp'/>
+        <img src='/images/collage(2).jpg.webp'/>
 
         {/* SCHEDULE */}
         <div className='flex flex-col gap-24 box-border px-8 schedule bg-contain max-w-screen w-screen border-b-8 border-white drop-shadow-lg'>
           {/* BANDUNG */}
           <div className="mt-20 content-font sm:text-xl font-medium tracking-wider">
             <div className='mb-4 leading-9'>
-              <div className="font-extrabold">{data.map(d => d.holyMatrimony)}</div>
+              <div className="font-extrabold text-xl">{data.map(d => d.holyMatrimony)}</div>
               <div>{data.map(d => d.holyMatrimonyDate)}</div>
               <div>14.30 WIB</div>
               <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/K7KnnNnHV1f9zGnY7" >{data.map(d => d.holyMatrimonyLoc)}</a>
@@ -255,7 +255,7 @@ function App() {
           {/* PONTIANAK */}
           <div className="content-font sm:text-xl font-medium tracking-wider">
             <div className='mb-4 leading-9'>
-              <div className="font-extrabold">{data.map(d => d.reception)}</div>
+              <div className="font-extrabold text-xl">{data.map(d => d.reception)}</div>
               <div>{data.map(d => d.receptionDate)}</div>
               <div>17.00 - 20.00 WIB</div>
               <a className="underline underline-offset-2 text-xl" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/8Rj8MCY5tRYaJxum8" >{data.map(d => d.receptionLoc)}<br />{data.map(d => d.receptionLocDetail)}</a>
@@ -292,9 +292,9 @@ function App() {
             : null
           }
           {/* NOTES TO COUPLE */}
-          <div className="w-full mx-auto sm:w-1/3 " >
+          <div className="w-full mx-auto sm:w-1/3 lowercase" >
             <div className="flex flex-col mx-3 gap-2 content-font text-lg font-medium tracking-wider leading-9">
-              <div className="font-extrabold">{data.map(d => d.noteToCouple)}</div>
+              <div className="font-extrabold text-xl">{data.map(d => d.noteToCouple)}</div>
               <input placeholder={data.map(d => d.rsvpFormName)} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={wishObj.name} onChange={handleNameChange} />
               <textarea type='textarea' placeholder={data.map(d => d.noteToCouplePlaceholder)} className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold h-28 normal-case" minLength={0} maxLength={MAX_TEXTAREA_CHAR} value={wishObj.note} onChange={handleNoteChange} />
               <p className=" text-xs text-right">{`${wishObj.charCount}/${MAX_TEXTAREA_CHAR}`}</p>
@@ -308,8 +308,8 @@ function App() {
           {/* WEDDING GIFTS */}
           <div className="w-full mx-auto">
             <div className="content-font text-lg font-medium tracking-wider leading-9">
-              <div className="font-extrabold">{data.map(d => d.weddingGift)}</div>
-              <div className="md:max-w-[25rem] mx-auto">
+              <div className="font-extrabold text-xl">{data.map(d => d.weddingGift)}</div>
+              <div className="sm:w-[500px] mx-auto">
                 {data.map(d => d.weddingGiftDesc)}<br />{data.map(d => d.weddingGiftDescDetail)}
               </div>
               <BankAcc name="david_bca"></BankAcc>

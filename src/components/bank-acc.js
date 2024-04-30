@@ -19,12 +19,13 @@ export default function BankAcc(props) {
     }, 2000);
   };
 
-  return (<div className="grid p-2 grid-flow-col auto-cols-max text-left mt-2 bg-white w-fit mx-auto rounded-lg drop-shadow-md" onClick={copyToClipboard}>
-    <div className="w-fit p-2" >
+  return (
+  <div className="grid p-2 grid-flow-col justify-between text-left mt-2 bg-white w-max-screen sm:w-1/3 mx-auto rounded-lg drop-shadow-md" onClick={copyToClipboard}>
+    <div className="w-max p-2">
       <div>{info.bank} {info.no}</div>
       <div>{info.name}</div>
     </div>
-    {isBankAccCopied ? <FaClipboardCheck className="h-12 w-4 text-green-500 transition-transform duration-300" /> : <FaClone className="h-12 w-4" />}
+    {isBankAccCopied ? <FaClipboardCheck className="h-12 w-4 mr-4 text-green-500 transition-transform duration-300" /> : <FaClone className="mr-4 h-12 w-4" />}
   </div>
   );
 }

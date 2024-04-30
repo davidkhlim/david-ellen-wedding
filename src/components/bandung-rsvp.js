@@ -89,7 +89,7 @@ function BandungRSVP(props) {
     <div className="content-font sm:text-xl font-medium tracking-wider leading-9">
       <div className="bg-white mx-auto sm:w-max w-full flex flex-col gap-4 p-8 rounded-lg shadow">
 
-        <div className="font-extrabold lowercase">{title}</div>
+        <div className="font-extrabold lowercase text-xl">{title}</div>
         <div className="text-base">{description}</div>
 
         {/* SCHEDULE */}
@@ -104,11 +104,11 @@ function BandungRSVP(props) {
         </div>
 
         {/* FORM */}
-        {isSuccess ? <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm sm:w-max self-center" onClick={() => window.location.reload()} >{rsvpResponseDoneButton}</button> : <>
+        {isSuccess ? <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm w-max-screen" onClick={() => window.location.reload()} >{rsvpResponseDoneButton}</button> : <>
           <input placeholder={placeholderName} type="text" className="border-2 border-gray-400 px-3 py-2 text-sm rounded-lg font-bold" value={name} onChange={(e) => HandleNameChange(e.target.value)}></input>
           <div className="flex space-x-2 items-center text-sm">
             <label className="w-full text-right font-bold">{guest}</label>
-            <select name="guests" id="guests" className="font-bold  border-2 border-gray-400 px-3 py-2 rounded-lg w-2/6" onChange={(e) => HandlePaxChange(e.target.value)} value={pax}>
+            <select name="guests" id="guests" className="font-bold border-2 border-gray-400 px-3 py-2 rounded-lg w-2/6" onChange={(e) => HandlePaxChange(e.target.value)} value={pax}>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -117,7 +117,7 @@ function BandungRSVP(props) {
               <option value="5">5</option>
             </select>
           </div>
-          <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm" onClick={SubmitForm} >{submit}</button>
+          <button className="bg-[#2d2d4b] p-2 rounded-full text-white text-sm w-max-screen" onClick={SubmitForm} >{submit}</button>
           <p className="text-xs">*{rsvpFormDeadline}</p>
         </>
 
@@ -127,7 +127,7 @@ function BandungRSVP(props) {
           <div>{paxError}</div>
         </div> : <></>}
         {msg ?
-          <div className="text-green-500 text-sm font-sans h-fit sm:w-max">
+          <div className="text-[#19192a] text-sm font-sans h-fit sm:w-max">
             <p className="mb-2 text-center max-w-[25rem] mx-auto">{msg}</p>
             <AddToCalendarButton
               name="David & Ellen Wedding Banquet"
