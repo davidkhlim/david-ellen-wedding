@@ -6,7 +6,7 @@ import dataID from './localization-id.json';
 import dataZH from './localization-zh.json';
 import './App.css';
 import { React, useState, useRef, useEffect } from 'react';
-import { FaVolumeMute, FaVolumeUp, FaUserCheck } from 'react-icons/fa';
+import { FaVolumeMute, FaVolumeUp, FaUserCheck, FaRegNewspaper } from 'react-icons/fa';
 import Tooltip from '@mui/material/Tooltip';
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import { createClient } from "@supabase/supabase-js";
@@ -180,9 +180,9 @@ function App() {
             </div>
             {/* OTHER IMAGES */}
             <div className="mb-8 mx-auto w-fit flex flex-wrap gap-3 sm:gap-6 items-center justify-center rounded-lg drop-shadow-lg">
-              <img src='/images/divider(1).JPG' className="w-24 sm:w-40 rounded-full border-4 border-white" />
-              <img src='/images/img-bible.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
               <img src='/images/img-cool.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/img-bible.jpg.webp' className="w-24 sm:w-40 rounded-full border-4 border-white" />
+              <img src='/images/divider(1).JPG' className="w-24 sm:w-40 rounded-full border-4 border-white" />
             </div>
 
             <div className="flex flex-col">
@@ -333,18 +333,10 @@ function App() {
             David & Ellen
           </div>
           <div>{data.map(d => d.thankyouFamily)}</div>
-          {/* <div className='flex flex-col justify-center items-center pb-4'>
-            <img src="/images/img-bible.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
-            <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm mb-2 w-fit' target="_blank" rel="noopener noreferrer" href="/UndanganFisik.pdf" >{data.map(d => d.seePhysInvt)}</a>
-            <button className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm w-fit' onClick={() => setShowOtherPhotos(!showOtherPhotos)}>{data.map(d => d.seeOtherPhotos)}</button>
-            {showOtherPhotos ? <>
-              <img src="/images/img-cool.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' />
-              <img src="/images/img-funny.jpg.webp" className='sm:w-full sm:h-[120%] rounded-full border-4 border-white' /></>
-              : null}
-          </div> */}
         </div>
       </div>
-          <img src='/images/img-bible.jpg.webp' className='border-t-3 border-white mt-[-91px] -z-10'/>
+      <img src='/images/img-bible.jpg.webp' className='border-t-3 border-white mt-[-110px] -z-10' />
+      <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm mb-[-1px] h-8 text-center align-middle' target="_blank" rel="noopener noreferrer" href="/UndanganFisik.pdf" ><FaRegNewspaper className='inline' /> {data.map(d => d.seePhysInvt)} </a>
     </div >
   );
 }
