@@ -336,7 +336,7 @@ function App() {
         </div>
       </div>
       <img src='/images/img-bible.jpg.webp' className='border-t-3 border-white mt-[-110px] -z-10' />
-      <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm mb-[-1px] h-8 text-center align-middle' target="_blank" rel="noopener noreferrer" href="/UndanganFisik.pdf" ><FaRegNewspaper className='inline' /> {data.map(d => d.seePhysInvt)} </a>
+      <a className='bg-[#2d2d4b] px-5 py-1 text-sm text-white rounded-sm mb-[-1px] h-8 text-center align-middle' target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1anOk-PmBWafQxxNbrFTzomssfWpbT8i-/view?usp=sharing" ><FaRegNewspaper className='inline' /> {data.map(d => d.seePhysInvt)} </a>
     </div >
   );
 }

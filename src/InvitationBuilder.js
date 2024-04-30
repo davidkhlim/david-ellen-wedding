@@ -2,8 +2,8 @@ import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { useEffect, useState } from "react";
 import { FaClone, FaClipboardCheck } from 'react-icons/fa';
 
-/* TODO:  // http://localhost:3000/?name=Davita%20Khowati&lang=EN&rsvp=true
-Pakai location search untuk dapat url awal, lalu parameter di URLEncode
+/* TODO: lalu parameter harus di URLEncode
+minimize ukuran webp yang masih besar
 */
 
 export default function InvitationBuilder() {
