@@ -2,8 +2,7 @@ import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { useEffect, useState } from "react";
 import { FaClone, FaClipboardCheck } from 'react-icons/fa';
 
-/* TODO: lalu parameter harus di URLEncode
-minimize ukuran webp yang masih besar
+/* TODO: minimize ukuran webp yang masih besar
 */
 
 export default function InvitationBuilder() {
