@@ -47,7 +47,7 @@ export default function InvitationBuilder() {
   };
 
   const generateText = () => {
-    const a = name.replace(/\s+/g, '%20');
+    const a = encodeURI(name);
     let b = GREETINGS_MSG1 + '*' + name + '*' + CONTENT_MSG1 + "https://david-eleonora-wedding.web.app/?name=" + a + "&rsvp=" + goToRoyalDynasty + "&lang=" + language + THANKS_MSG1;
     if(version === 'false') b = GREETINGS_MSG2 + '*' + name + '*' + CONTENT_MSG2 + "https://david-eleonora-wedding.web.app/?name=" + a + "&rsvp=" + goToRoyalDynasty + "&lang=" + language + THANKS_MSG2;
     b = b + REGARD_MSG;
